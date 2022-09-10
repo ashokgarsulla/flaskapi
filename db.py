@@ -54,6 +54,7 @@ conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrite
 cluster = pymongo.MongoClient(conn_str)
 db = cluster["test"]
 collection = db["student"]
+#these information will store 
 post = {
     "_id" : 0,
     "name" : "Ashok kumar"
