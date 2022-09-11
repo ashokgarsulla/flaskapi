@@ -48,15 +48,21 @@ import pymongo
 # Replace the uri string with your MongoDB deployment's connection string.
 # conn_str = "mongodb+srv://flaskapi:PUzNsqDnEljVlB5s@<cluster-address>/test?retryWrites=true&w=majority"
 # conn_str = "mongodb+srv://flaskapi:SUH2gc4JEWag4k1J@book.dqoatii.mongodb.net/Book?retryWrites=true&w=majority"
+# conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrites=true&w=majority"
 conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrites=true&w=majority"
 
 # set a 5-second connection timeout
-cluster = pymongo.MongoClient(conn_str)
-db = cluster["test"]
-collection = db["student"]
-#these information will store 
-post = {
-    "_id" : 0,
-    "name" : "Ashok kumar"
-}
-collection.insert_one(post)
+# cluster = pymongo.MongoClient(conn_str,ServerSelectionTimeoutMS = 5000)
+# db = cluster["test"]
+# collection = db["student"]
+# #these information will store 
+# post = {
+#     "_id" : 2,
+#     "name" : "Ashok kumar"
+# }
+# collection.insert_one(post)
+myclient = pymongo.MongoClient(conn_str,ServerSelectionTimeoutMS = 5000)
+print(myclient)
+
+for db in myclient.list_databases():
+    print(db)
