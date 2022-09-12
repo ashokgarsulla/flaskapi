@@ -49,7 +49,8 @@ import pymongo
 # conn_str = "mongodb+srv://flaskapi:PUzNsqDnEljVlB5s@<cluster-address>/test?retryWrites=true&w=majority"
 # conn_str = "mongodb+srv://flaskapi:SUH2gc4JEWag4k1J@book.dqoatii.mongodb.net/Book?retryWrites=true&w=majority"
 # conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrites=true&w=majority"
-conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrites=true&w=majority"
+# conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrites=true&w=majority"
+conn_str = "mongodb+srv://test:test@cluster0.zk7u13v.mongodb.net/?retryWrites=true&w=majority"
 
 # set a 5-second connection timeout
 # cluster = pymongo.MongoClient(conn_str,ServerSelectionTimeoutMS = 5000)
@@ -63,6 +64,17 @@ conn_str = "mongodb+srv://flaskapi:test@cluster0.mgaj9yj.mongodb.net/?retryWrite
 # collection.insert_one(post)
 myclient = pymongo.MongoClient(conn_str,ServerSelectionTimeoutMS = 5000)
 print(myclient)
+db = myclient.test
+collection = db["student"]
+#these information will store 
+post = {
+
+    "name" : "Abhinash kumar"
+}
+collection.insert_one(post)
 
 for db in myclient.list_databases():
     print(db)
+
+import pprint
+pprint.pprint(collection.find_one())
