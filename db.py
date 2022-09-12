@@ -65,16 +65,16 @@ conn_str = "mongodb+srv://test:test@cluster0.zk7u13v.mongodb.net/?retryWrites=tr
 myclient = pymongo.MongoClient(conn_str,ServerSelectionTimeoutMS = 5000)
 print(myclient)
 db = myclient.test
-collection = db["student"]
+# collection = db["student"]
 #these information will store 
-post = {
+# post = {
 
-    "name" : "Abhinash kumar"
-}
-collection.insert_one(post)
+#     "name" : "Abhinash kumar"
+# }
+# collection.insert_one(post)
 
-for db in myclient.list_databases():
-    print(db)
+# for db in myclient.list_databases():
+#     print(db)
 
-import pprint
-pprint.pprint(collection.find_one())
+# import pprint
+# pprint.pprint(collection.find_one())
